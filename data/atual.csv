@@ -1,0 +1,5 @@
+﻿ClienteID,Nome,Estado_civil,Email,Start_date,Final_date,Situation
+1001,Joana,Casada,joana@email.com,2010-01-03, 9999-12-30,ativo
+1002,João,Solteiro,joao@email.com,2015-04-19, 9999-12-30, ativo
+1003,Ricardo,Solteiro,ricardo@email.com,2012-09-30, 9999-12-30, ativo
+1004,Gabriela,Solteira,gabriela@email.com,2014-08-05, 9999-12-30, ativo

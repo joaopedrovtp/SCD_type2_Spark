@@ -1,0 +1,30 @@
+### Slow Changing Dimensions em um DW Usando Hive e Spark
+
+--------------------
+## Importação de dados do MySQL para o Hive Warehouse
+7.2.10. Importing Data Into Hive (https://sqoop.apache.org/docs/1.4.2/SqoopUserGuide
+.html#_importing_data_into_hive)
+
+Utilizar o MySQL como metastore ao inves do Apache Derby que vem por default no Hive; (feito acima)
+Tive que baixar o arquivo hive-common-0.10.0.jar e colocar na  pasta de libs do sqoop
+--------------------
+
+# Importação da tabela do MySQL para o Hive
+sqoop import --connect jdbc:mysql://localhost:3306/companydb?serverTimezone=UTC --username root --password xxx --m 1 --table clientes --hive-import --hive-database  companydb
+
+
+--------------------
+## Execucao do script SCD com Spark e Hive
+Antes da execução do script tive alguns erros para corrigir: 
+
+Alterações na configurações do Hive:
+ - Renomar o arq. hive-default.xml para hive-site.xml (recomendado na documentacao Hive);
+ - Troubleshooting 1: Erro 'serverTimezone'. Necessário declarar valor para UTC, default é DST;
+  	ConnectionURL : jdbc:mysql://localhost/metastore?createDatabaseIfNotExist=true&amp;serverTimezone=UTC&amp
+ - Troubleshooting 2: connectionPoolingType. Necessário alterar valor de 'HikariCP' para 'dbcp' 
+já que estou usando o mysql como metastore.
+--------------------
+
+# Execução do script pyspark
+spark-submit SCD_type2_hive.py
+
