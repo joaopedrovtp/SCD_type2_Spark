@@ -4,6 +4,7 @@ Um dos mais amplos usos do Hadoop atualmente é construir uma plataforma de Data
 
 Slowly Changing Dimension(SCD) é um termo utilizado em teorias de Data Management e Data Warehousing para grupos de dados lógicos como informações de produtos, clientes, etc. que mudam lentamente ao longo do tempo. Nesse exemplo vou implementar o SCD tipo 2 em uma tabela no DW do Hive utilizando o Apache Spark.
 
+
 | ClienteID | Nome | Estado_civil | Email | Start_date | Final_date | Situation |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1001 | Joana | Casada | joana@email.com | 2010-01-03 | 9999-12-30 | ativo |
